@@ -9,11 +9,11 @@ type PropsInfo = {
 
 export default function Todo(props: PropsInfo) {
     let countTshirt: number | undefined = 0;
-    const [checked, setChecked] = useState()
-    const [checked1, setChecked1] = useState()
-    const [checked2, setChecked2] = useState()
-    const [checked3, setChecked3] = useState()
-    const [checked4, setChecked4] = useState()
+    const [checked] = useState()
+    const [checked1] = useState()
+    const [checked2] = useState()
+    const [checked3] = useState()
+    const [checked4] = useState()
 
 
     function calcSocs() {
@@ -25,6 +25,7 @@ export default function Todo(props: PropsInfo) {
             } else if (props.recieve?.hygiene == "2") {
                 countSocs = props.recieve.holidayDays
             } else {
+                // @ts-ignore
                 countSocs = Math.ceil(props.recieve?.holidayDays * 1.5)
             }
             return countSocs
@@ -76,6 +77,7 @@ export default function Todo(props: PropsInfo) {
             if (props.recieve?.season == "summer") {
                 countTshirt = props.recieve?.holidayDays
             }
+            // @ts-ignore
             countTshirt = Math.ceil(props.recieve?.holidayDays / 1.5)
         }
         return countTshirt;
@@ -87,6 +89,7 @@ export default function Todo(props: PropsInfo) {
         } else if (props.recieve?.hygiene == "2") {
             return props.recieve.holidayDays
         } else {
+            // @ts-ignore
             return Math.ceil(props.recieve?.holidayDays * 10)
         }
     }
@@ -98,31 +101,31 @@ export default function Todo(props: PropsInfo) {
                     <h1>To-Do List</h1>
                     <div className="checkbox-container" style={{display: "flex"}}>
                         <input type="checkbox" id="strikethrough" value={checked + ""}
-                               onChange={() => setChecked(!checked)}/>
+                        />
                         <label id="textLabel"
                                style={{textDecorationLine: checked === true ? "line-through" : ""}}>Unterhosen {calcUnderwear()}</label>
                     </div>
                     <div className="checkbox-container" style={{display: "flex"}}>
                         <input type="checkbox" id="strikethrough" value={checked1 + ""}
-                               onChange={() => setChecked1(!checked1)}/>
+                        />
                         <label id="textLabel"
                                style={{textDecorationLine: checked1 === true ? "line-through" : ""}}>T-Shirt {calcTShirt()}</label>
                     </div>
                     <div className="checkbox-container" style={{display: "flex"}}>
                         <input type="checkbox" id="strikethrough" value={checked2 + ""}
-                               onChange={() => setChecked2(!checked2)}/>
+                        />
                         <label id="textLabel"
                                style={{textDecorationLine: checked2 === true ? "line-through" : ""}}>Socken {calcSocs()}</label>
                     </div>
                     <div className="checkbox-container" style={{display: "flex"}}>
                         <input type="checkbox" id="strikethrough" value={checked3 + ""}
-                               onChange={() => setChecked3(!checked3)}/>
+                        />
                         <label id="textLabel"
                                style={{textDecorationLine: checked3 === true ? "line-through" : ""}}>Pullover {calcPullover()}</label>
                     </div>
                     <div className="checkbox-container" style={{display: "flex"}}>
                         <input type="checkbox" id="strikethrough" value={checked4 + ""}
-                               onChange={() => setChecked4(!checked4)}/>
+                        />
                         <label id="textLabel"
                                style={{textDecorationLine: checked4 === true ? "line-through" : ""}}>Hosen {calcPants()}</label>
                     </div>
